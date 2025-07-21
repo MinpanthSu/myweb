@@ -13,6 +13,16 @@
 
 <body>
 
+<!-- Ready -->
+<div id="introPopup" style="position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); display:flex; justify-content:center; align-items:center; z-index:2000;">
+  <div style="background:white; padding:30px 40px; border-radius:20px; text-align:center;">
+    <p style="font-size:18px; color:#333;">📢 พร้อมจะเริ่มประสบการณ์แล้วหรือยัง?</p>
+    <button id="startBtn" style="margin-top:20px; padding:10px 20px; font-size:16px; border:none; background:#5c9eff; color:white; border-radius:8px; cursor:pointer;">
+      พร้อมแล้ว
+    </button>
+  </div>
+</div>
+
 <div class="main-content">
     <h1>这是我的网站 </h1>
     <p>好看</p>
@@ -22,6 +32,7 @@
 <div class="letter-container">
   <img id="letterBtn" src="https://cdn-icons-png.flaticon.com/512/561/561127.png" alt="จดหมาย" />
 </div>
+
 
 
 <!-- Music Player -->
@@ -61,6 +72,7 @@
 <!-- Audio -->
 <audio id="audioPlayer" preload="auto" loop></audio>
 
+<script src="ready.js"></script>
 <script src="music.js"></script>
 
 </body>

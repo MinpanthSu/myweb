@@ -13,7 +13,6 @@ const playlist = [
   { title: "Bensound - Love", src: "music/bensound-love.mp3" },
 ];
 
-
 let currentIndex = 0;
 
 function loadSong(index) {
@@ -41,23 +40,31 @@ function toggleMute(mute) {
   unmuteBtn.style.display = mute ? 'inline-block' : 'none';
 }
 
-// // Event listeners
-playBtn.addEventListener('click', playSong);
-pauseBtn.addEventListener('click', pauseSong);
+// เริ่มต้นซ่อนปุ่ม expand
+expandBtn.style.display = 'none';
 
-muteBtn.addEventListener('click', () => toggleMute(true));
-unmuteBtn.addEventListener('click', () => toggleMute(false));
-
-// minimize / expand popup
+// ย่อ popup เพลง + แสดงปุ่ม expand
 minimizeBtn.addEventListener('click', () => {
   popup.classList.add('minimized');
+  expandBtn.style.display = 'block';
 });
 
+// ขยาย popup เพลง + ซ่อนปุ่ม expand
 expandBtn.addEventListener('click', () => {
   popup.classList.remove('minimized');
+  expandBtn.style.display = 'none';
 });
+
+// Event listeners สำหรับปุ่มเพลง
+playBtn.addEventListener('click', playSong);
+pauseBtn.addEventListener('click', pauseSong);
+muteBtn.addEventListener('click', () => toggleMute(true));
+unmuteBtn.addEventListener('click', () => toggleMute(false));
 
 // โหลดเพลงแรกตอนเริ่มต้น
 loadSong(currentIndex);
 playSong();  // สั่งเล่นเพลงทันทีหลังโหลด
 
+// export ฟังก์ชันไว้ถ้าต้องเรียกจากที่อื่น
+window.loadSong = loadSong;
+window.playSong = playSong;
