@@ -1,8 +1,6 @@
 const audio = document.getElementById('audioPlayer');
 const playBtn = document.getElementById('playBtn');
 const pauseBtn = document.getElementById('pauseBtn');
-const prevBtn = document.getElementById('prevBtn');
-const nextBtn = document.getElementById('nextBtn');
 const muteBtn = document.getElementById('muteBtn');
 const unmuteBtn = document.getElementById('unmuteBtn');
 const songTitle = document.getElementById('songTitle');
@@ -12,12 +10,7 @@ const minimizeBtn = document.getElementById('minimizeBtn');
 const expandBtn = document.getElementById('expandBtn');
 
 const playlist = [
-  { title: "Bensound - Tenderness", src: "https://www.bensound.com/bensound-music/bensound-tenderness.mp3" },
-  { title: "Bensound - Love", src: "https://www.bensound.com/bensound-music/bensound-love.mp3" },
-  { title: "Bensound - Slow Motion", src: "https://www.bensound.com/bensound-music/bensound-slowmotion.mp3" },
-  { title: "Bensound - Acoustic Breeze", src: "https://www.bensound.com/bensound-music/bensound-acousticbreeze.mp3" },
-  { title: "Bensound - Better Days", src: "https://www.bensound.com/bensound-music/bensound-betterdays.mp3" },
-  { title: "Bensound - November", src: "https://www.bensound.com/bensound-music/bensound-november.mp3" }
+  { title: "Bensound - Love", src: "music/bensound-love.mp3" },
 ];
 
 
@@ -48,30 +41,12 @@ function toggleMute(mute) {
   unmuteBtn.style.display = mute ? 'inline-block' : 'none';
 }
 
-// Event listeners
+// // Event listeners
 playBtn.addEventListener('click', playSong);
 pauseBtn.addEventListener('click', pauseSong);
 
-prevBtn.addEventListener('click', () => {
-  currentIndex = (currentIndex - 1 + playlist.length) % playlist.length;
-  loadSong(currentIndex);
-  playSong();
-});
-
-nextBtn.addEventListener('click', () => {
-  currentIndex = (currentIndex + 1) % playlist.length;
-  loadSong(currentIndex);
-  playSong();
-});
-
 muteBtn.addEventListener('click', () => toggleMute(true));
 unmuteBtn.addEventListener('click', () => toggleMute(false));
-
-audio.addEventListener('ended', () => {
-  currentIndex = (currentIndex + 1) % playlist.length;
-  loadSong(currentIndex);
-  playSong();
-});
 
 // minimize / expand popup
 minimizeBtn.addEventListener('click', () => {
@@ -84,3 +59,5 @@ expandBtn.addEventListener('click', () => {
 
 // โหลดเพลงแรกตอนเริ่มต้น
 loadSong(currentIndex);
+playSong();  // สั่งเล่นเพลงทันทีหลังโหลด
+

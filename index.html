@@ -16,32 +16,50 @@
 <div class="main-content">
     <h1>这是我的网站 </h1>
     <p>好看</p>
-    <p>谢谢</p>
 </div>
+
+<!-- กล่องจดหมายตรงกลางจอ -->
+<div class="letter-container">
+  <img id="letterBtn" src="https://cdn-icons-png.flaticon.com/512/561/561127.png" alt="จดหมาย" />
+</div>
+
 
 <!-- Music Player -->
 <div id="musicPopup">
-    <button class="toggleBtn" id="minimizeBtn">
-        <i class="fa-solid fa-chevron-down"></i>
+  <button class="toggleBtn" id="minimizeBtn" title="ย่อ popup">
+    <i class="fa-solid fa-chevron-down"></i>
+  </button>
+
+  <h4 id="songTitle">
+    🎶 Bensound - Love
+  </h4>
+
+  <div class="controls">
+    <button id="playBtn" title="เล่นเพลง">
+      <i class="fa-solid fa-play"></i>
     </button>
-    <h4 id="songTitle">🎶 Bensound - Sunny</h4>
-    <div class="controls">
-        <button id="prevBtn" title="เพลงก่อนหน้า"><i class="fa-solid fa-backward"></i></button>
-        <button id="playBtn" title="เล่นเพลง"><i class="fa-solid fa-play"></i></button>
-        <button id="pauseBtn" title="หยุดเพลง" style="display:none;"><i class="fa-solid fa-pause"></i></button>
-        <button id="nextBtn" title="เพลงถัดไป"><i class="fa-solid fa-forward"></i></button>
-        <button id="muteBtn" title="ปิดเสียง"><i class="fa-solid fa-volume-high"></i></button>
-        <button id="unmuteBtn" title="เปิดเสียง" style="display:none;"><i class="fa-solid fa-volume-xmark"></i></button>
-    </div>
+    <button id="pauseBtn" title="หยุดเพลง" style="display:none;">
+      <i class="fa-solid fa-pause"></i>
+    </button>
+
+    <button id="muteBtn" title="ปิดเสียง">
+      <i class="fa-solid fa-volume-high"></i>
+    </button>
+    <button id="unmuteBtn" title="เปิดเสียง" style="display:none;">
+      <i class="fa-solid fa-volume-xmark"></i>
+    </button>
+  </div>
 </div>
 
-<!-- ⬆ Expand Button -->
+
+
+<!--Expand Button -->
 <button class="expandBtn" id="expandBtn">
     <i class="fa-solid fa-headphones"></i>
 </button>
 
 <!-- Audio -->
-<audio id="audioPlayer" preload="auto"></audio>
+<audio id="audioPlayer" preload="auto" loop></audio>
 
 <script src="music.js"></script>
 
