@@ -7,7 +7,7 @@
   <meta charset="UTF-8">
   <title>我的网站</title>
 
-  <!-- ลิงก์ไฟล์ CSS -->
+  <!-- style.css -->
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -24,10 +24,14 @@
     <button class="toggleBtn" id="minimizeBtn">
         <i class="fa-solid fa-chevron-down"></i>
     </button>
-    <h4>🎶 Bensound - Sunny</h4>
+    <h4 id="songTitle">🎶 Bensound - Sunny</h4>
     <div class="controls">
-    <button id="playPauseBtn">▶</button>
-    <input type="range" id="volumeControl" min="0" max="1" step="0.01" value="0.5">
+        <button id="prevBtn" title="เพลงก่อนหน้า"><i class="fa-solid fa-backward"></i></button>
+        <button id="playBtn" title="เล่นเพลง"><i class="fa-solid fa-play"></i></button>
+        <button id="pauseBtn" title="หยุดเพลง" style="display:none;"><i class="fa-solid fa-pause"></i></button>
+        <button id="nextBtn" title="เพลงถัดไป"><i class="fa-solid fa-forward"></i></button>
+        <button id="muteBtn" title="ปิดเสียง"><i class="fa-solid fa-volume-high"></i></button>
+        <button id="unmuteBtn" title="เปิดเสียง" style="display:none;"><i class="fa-solid fa-volume-xmark"></i></button>
     </div>
 </div>
 
@@ -36,41 +40,10 @@
     <i class="fa-solid fa-headphones"></i>
 </button>
 
-<!-- 🎧 Audio -->
-<audio id="audioPlayer" src="https://www.bensound.com/bensound-music/bensound-sunny.mp3" preload="auto"></audio>
+<!-- Audio -->
+<audio id="audioPlayer" preload="auto"></audio>
 
-<script>
-    const audio = document.getElementById('audioPlayer');
-    const playPauseBtn = document.getElementById('playPauseBtn');
-    const volumeControl = document.getElementById('volumeControl');
-    const popup = document.getElementById('musicPopup');
-    const minimizeBtn = document.getElementById('minimizeBtn');
-    const expandBtn = document.getElementById('expandBtn');
-
-    audio.volume = volumeControl.value;
-
-    playPauseBtn.addEventListener('click', () => {
-    if (audio.paused) {
-        audio.play();
-        playPauseBtn.textContent = '⏸';
-    } else {
-        audio.pause();
-        playPauseBtn.textContent = '▶';
-    }
-    });
-
-    volumeControl.addEventListener('input', () => {
-    audio.volume = volumeControl.value;
-    });
-
-    minimizeBtn.addEventListener('click', () => {
-    popup.classList.add('minimized');
-    });
-
-    expandBtn.addEventListener('click', () => {
-    popup.classList.remove('minimized');
-    });
-</script>
+<script src="music.js"></script>
 
 </body>
 </html>
