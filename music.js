@@ -12,11 +12,14 @@ const minimizeBtn = document.getElementById('minimizeBtn');
 const expandBtn = document.getElementById('expandBtn');
 
 const playlist = [
-  { title: "Bensound - Sunny", src: "https://www.bensound.com/bensound-music/bensound-sunny.mp3" },
-  { title: "Bensound - Creative Minds", src: "https://www.bensound.com/bensound-music/bensound-creativeminds.mp3" },
-  { title: "Bensound - Energy", src: "https://www.bensound.com/bensound-music/bensound-energy.mp3" },
-  { title: "Bensound - Happy Rock", src: "https://www.bensound.com/bensound-music/bensound-happyrock.mp3" },
+  { title: "Bensound - Tenderness", src: "https://www.bensound.com/bensound-music/bensound-tenderness.mp3" },
+  { title: "Bensound - Love", src: "https://www.bensound.com/bensound-music/bensound-love.mp3" },
+  { title: "Bensound - Slow Motion", src: "https://www.bensound.com/bensound-music/bensound-slowmotion.mp3" },
+  { title: "Bensound - Acoustic Breeze", src: "https://www.bensound.com/bensound-music/bensound-acousticbreeze.mp3" },
+  { title: "Bensound - Better Days", src: "https://www.bensound.com/bensound-music/bensound-betterdays.mp3" },
+  { title: "Bensound - November", src: "https://www.bensound.com/bensound-music/bensound-november.mp3" }
 ];
+
 
 let currentIndex = 0;
 
