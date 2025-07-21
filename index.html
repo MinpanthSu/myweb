@@ -1,27 +1,148 @@
 <!DOCTYPE html>
 <html lang="th">
-
 <head>
-  <meta charset="UTF-8">
-  <title>ยินดีต้อนรับ</title>
-  <style>
-    /* CSS สำหรับตกแต่งหน้าเว็บ */
+<!-- Font Awesome -->  
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">  
+
+<meta charset="UTF-8">
+<title>Mini Player</title>
+<style>
     body {
-        background: linear-gradient(135deg, #667eea, #764ba2);
-        color: white;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        text-align: center;
-        padding: 50px;
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ece9e6, #ffffff);
+    min-height: 100vh;
     }
-  </style>
+
+    .main-content {
+    padding: 80px;
+    text-align: center;
+    }
+
+    /* 🔻 Mini Music Popup */
+    #musicPopup {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    background: rgba(30, 30, 30, 0.8); /* โปร่งแสง */
+    backdrop-filter: blur(6px);         /* เบลอพื้นหลังเล็กน้อย */
+    color: white;
+    border-radius: 15px;
+    padding: 15px 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    transition: transform 0.4s ease, opacity 0.3s ease;
+    z-index: 1000;
+    }
+
+    #musicPopup.minimized {
+    transform: translateY(120%);
+    opacity: 0;
+    pointer-events: none;
+    }
+
+    .controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+    }
+
+    .controls input[type="range"] {
+    width: 100px;
+    }
+
+    .toggleBtn {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    }
+
+    .expandBtn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #222;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 6px 14px;
+    cursor: pointer;
+    display: none;
+    z-index: 999;
+    opacity: 0.85;
+    }
+
+    #musicPopup.minimized + .expandBtn {
+    display: block;
+    }
+</style>
 </head>
-
-
 <body>
-  <h1>สวัสดี! นี่คือเว็บของฉันน 🖐️</h1>
+
+<div class="main-content">
+    <h1>Myweb</h1>
+    <p>好看</p>
+    <p>谢谢</p>
+</div>
+
+<!-- 🔊 Mini Music Player -->
+<div id="musicPopup">
+    <button class="toggleBtn" id="minimizeBtn">
+        <i class="fa-solid fa-chevron-down"></i>
+    </button>
+    <h4>🎶 Bensound - Sunny</h4>
+    <div class="controls">
+    <button id="playPauseBtn">▶</button>
+    <input type="range" id="volumeControl" min="0" max="1" step="0.01" value="0.5">
+    </div>
+</div>
+
+<!-- ⬆ Expand Button -->
+<button class="expandBtn" id="expandBtn">
+    <i class="fa-solid fa-headphones"></i>
+</button>
+
+<!-- 🎧 Audio -->
+<audio id="audioPlayer" src="https://www.bensound.com/bensound-music/bensound-sunny.mp3" preload="auto"></audio>
+
+<script>
+    const audio = document.getElementById('audioPlayer');
+    const playPauseBtn = document.getElementById('playPauseBtn');
+    const volumeControl = document.getElementById('volumeControl');
+    const popup = document.getElementById('musicPopup');
+    const minimizeBtn = document.getElementById('minimizeBtn');
+    const expandBtn = document.getElementById('expandBtn');
+
+    audio.volume = volumeControl.value;
+
+    playPauseBtn.addEventListener('click', () => {
+    if (audio.paused) {
+        audio.play();
+        playPauseBtn.textContent = '⏸';
+    } else {
+        audio.pause();
+        playPauseBtn.textContent = '▶';
+    }
+    });
+
+    volumeControl.addEventListener('input', () => {
+    audio.volume = volumeControl.value;
+    });
+
+    minimizeBtn.addEventListener('click', () => {
+    popup.classList.add('minimized');
+    });
+
+    expandBtn.addEventListener('click', () => {
+    popup.classList.remove('minimized');
+    });
+</script>
+
 </body>
-
 </html>
-
-<!DOCTYPE html>
-
