@@ -122,3 +122,71 @@ body {
 .letter-container img:hover {
   transform: scale(1.1); /* ขยายเวลาวางเมาส์ */
 }
+
+.paper-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.2);
+  opacity: 0;
+  z-index: 1500;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  pointer-events: none;
+  width: 90vw;         /* ยืดตามหน้าจอแต่ไม่เกิน */
+  max-width: 500px;    /* บน PC ให้ใหญ่พอสมควร */
+  height: auto;
+  max-height: 90vh;    /* ไม่สูงเกินหน้าจอ */
+  
+  box-shadow: none !important;
+  background: transparent; /* เผื่อมีพื้นหลัง */
+}
+
+.paper-popup.active {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.paper-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 0;              /* ถ้าไม่ต้องการมุมโค้ง */
+  box-shadow: none !important;  /* ลบเงา */
+}
+
+.paper-text {
+  position: absolute;
+  top: 120px;
+  left: 20px;
+  right: 20px;
+  text-align: center;
+  color: #333;
+}
+
+.paper-text p {
+  font-size: 18px;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.close-btn {
+  position: absolute;
+  top: 45px;
+  right: 60px;
+  background: transparent;
+  border: none;
+  font-size: 28px;
+  font-weight: bold;
+  color: #ff5555;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+  user-select: none;
+  transition: color 0.2s ease;
+  z-index: 1600; /* ให้อยู่เหนือเนื้อหากระดาษ */
+}
+
+.close-btn:hover {
+  color: #ff0000;
+}

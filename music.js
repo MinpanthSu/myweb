@@ -68,3 +68,45 @@ playSong();  // สั่งเล่นเพลงทันทีหลัง�
 // export ฟังก์ชันไว้ถ้าต้องเรียกจากที่อื่น
 window.loadSong = loadSong;
 window.playSong = playSong;
+
+// จัดการกระดาษและเพลง HBD
+const letterBtn = document.getElementById('letterBtn');
+const paperPopup = document.getElementById('paperPopup');
+const closePaper = document.getElementById('closePaper');
+
+// เตรียมเสียง HBD
+const hbdAudio = new Audio('music/music_hbd.mp3');
+hbdAudio.loop = true;
+
+letterBtn.addEventListener('click', () => {
+  // แสดงกระดาษพร้อม animation
+  paperPopup.classList.remove('hidden');
+  setTimeout(() => paperPopup.classList.add('active'), 10);
+
+  // หยุดเพลงหลัก
+  audio.pause();
+
+  // เล่นเพลง HBD
+  hbdAudio.play();
+
+  // ปรับปุ่มเพลงให้ถูกต้อง
+  playBtn.style.display = 'inline-block';
+  pauseBtn.style.display = 'none';
+});
+
+closePaper.addEventListener('click', () => {
+  // ซ่อนกระดาษ
+  paperPopup.classList.remove('active');
+  setTimeout(() => paperPopup.classList.add('hidden'), 300);
+
+  // หยุดเพลง HBD
+  hbdAudio.pause();
+  hbdAudio.currentTime = 0;
+
+  // กลับมาเล่นเพลงหลัก
+  audio.play();
+
+  // ปรับปุ่มเพลง
+  playBtn.style.display = 'none';
+  pauseBtn.style.display = 'inline-block';
+});
