@@ -132,13 +132,18 @@ body {
   z-index: 1500;
   transition: transform 0.5s ease, opacity 0.5s ease;
   pointer-events: none;
-  width: 90vw;         /* ยืดตามหน้าจอแต่ไม่เกิน */
-  max-width: 500px;    /* บน PC ให้ใหญ่พอสมควร */
+  width: 90vw;
+  max-width: 500px;
   height: auto;
-  max-height: 90vh;    /* ไม่สูงเกินหน้าจอ */
+  max-height: 90vh;
   
   box-shadow: none !important;
-  background: transparent; /* เผื่อมีพื้นหลัง */
+  background: transparent;
+
+  position: fixed;   /* อยู่แล้ว */
+  /* เพิ่มตรงนี้ */
+  position: fixed;
+  /* position: relative; // ไม่ต้องใส่ก็ได้ เพราะ fixed ก็อ้างอิงได้ */
 }
 
 .paper-popup.active {
@@ -151,8 +156,9 @@ body {
   width: 100%;
   height: auto;
   object-fit: contain;
-  border-radius: 0;              /* ถ้าไม่ต้องการมุมโค้ง */
-  box-shadow: none !important;  /* ลบเงา */
+  border-radius: 0;
+  box-shadow: none !important;
+  display: block;
 }
 
 .paper-text {
@@ -163,18 +169,19 @@ body {
   text-align: center;
   color: #333;
   padding: 0 20px;
+  width: 80%; /* กำหนดขนาดไม่ให้กว้างเกิน */
 }
 
 .paper-text p {
   font-size: 18px;
   font-weight: 500;
-  margin: 0; /* ลบ margin เพื่อการจัดกลางเป๊ะ */
+  margin: 0;
 }
 
 .close-btn {
   position: absolute;
-  top: 45px;
-  right: 60px;
+  top: 50px;    /* ปรับลงมาชิดขอบบน */
+  right: 70px;  /* ปรับเข้าใกล้มุมขวา */
   background: transparent;
   border: none;
   font-size: 28px;
@@ -185,7 +192,7 @@ body {
   padding: 0;
   user-select: none;
   transition: color 0.2s ease;
-  z-index: 1600; /* ให้อยู่เหนือเนื้อหากระดาษ */
+  z-index: 1600;
 }
 
 .close-btn:hover {
