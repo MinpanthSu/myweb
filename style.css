@@ -157,17 +157,18 @@ body {
 
 .paper-text {
   position: absolute;
-  top: 120px;
-  left: 20px;
-  right: 20px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   text-align: center;
   color: #333;
+  padding: 0 20px;
 }
 
 .paper-text p {
   font-size: 18px;
-  margin-bottom: 20px;
   font-weight: 500;
+  margin: 0; /* ลบ margin เพื่อการจัดกลางเป๊ะ */
 }
 
 .close-btn {
