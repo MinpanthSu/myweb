@@ -115,7 +115,7 @@ body {
 }
 
 .letter-container img {
-  width: 120px;  /* ขนาดรูป */
+  width: 200px;  /* ขนาดรูป */
   transition: transform 0.3s ease;
 }
 

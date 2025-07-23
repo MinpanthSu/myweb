@@ -88,19 +88,27 @@ const letterBtn = document.getElementById('letterBtn');
 const paperPopup = document.getElementById('paperPopup');
 const closePaper = document.getElementById('closePaper');
 
+let letterOpened = false;
+
 letterBtn.addEventListener('click', () => {
-  paperPopup.classList.remove('hidden');
-  setTimeout(() => paperPopup.classList.add('active'), 10);
+  if (letterOpened) return;
+  letterOpened = true;
 
-  // หยุดเพลงหลัก
+  // เปลี่ยนภาพเป็น gif
+  letterBtn.src = 'image/letter_paper.gif';
+
+  // หยุดเพลงหลัก + เล่น HBD ทันที
   audio.pause();
-
-  // เล่นเพลง HBD
   hbdAudio.play();
 
-  // ปรับปุ่ม UI
   playBtn.style.display = 'inline-block';
   pauseBtn.style.display = 'none';
+
+  // ✅ ดีเลย์ 1.3 วิ ก่อนแสดง popup
+  setTimeout(() => {
+    paperPopup.classList.remove('hidden');
+    setTimeout(() => paperPopup.classList.add('active'), 10);
+  }, 1300);
 });
 
 closePaper.addEventListener('click', () => {
@@ -113,11 +121,14 @@ closePaper.addEventListener('click', () => {
 
   // เล่นเพลงหลักกลับ
   audio.play();
-
-  // ปรับปุ่ม UI
   playBtn.style.display = 'none';
   pauseBtn.style.display = 'inline-block';
+
+  // 🔄 เปลี่ยนกลับเป็นภาพนิ่ง
+  letterBtn.src = 'image/letter_close.png';
+  letterOpened = false;
 });
+
 
 // ฟังก์ชัน export หากต้องใช้จากนอก
 window.loadSong = loadSong;
