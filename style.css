@@ -116,6 +116,7 @@ body {
   justify-content: center; /* จัดกลางแนวตั้ง */
   text-align: center;
   z-index: 1000;
+  display: none;
 }
 
 .letter-container img {
@@ -211,13 +212,13 @@ body {
 
 #questionBox {
   position: fixed;             /* ลอยอยู่เหนือหน้าจอ */
-  top: 50%;
+  top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
   background: white;
   padding: 30px 40px;
-  border-radius: 20px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  /* border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1); */
   z-index: 1000;
   text-align: center;
   width: 90vw;
@@ -236,4 +237,15 @@ body {
   color: white;
   border-radius: 8px;
   cursor: pointer;
+}
+
+/* textbox */
+.textbox img {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  border-radius: 0;
+  box-shadow: none !important;
+  display: block;
+  margin-top: 400px;
 }

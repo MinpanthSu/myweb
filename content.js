@@ -85,9 +85,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // คำถาม
 const questions = [
-  "คำถาม 1: คุณชอบแมวไหม?",
-  "คำถาม 2: คุณชอบเค้กไหม?",
-  "คำถาม 3: คุณอยากได้รับจดหมายพิเศษไหม?"
+  "คำถาม 1: ",
+  "คำถาม 2: ",
+  "คำถาม 3: "
 ];
 let currentQuestion = 0;
 
