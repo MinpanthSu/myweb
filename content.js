@@ -83,6 +83,33 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+// คำถาม
+const questions = [
+  "คำถาม 1: คุณชอบแมวไหม?",
+  "คำถาม 2: คุณชอบเค้กไหม?",
+  "คำถาม 3: คุณอยากได้รับจดหมายพิเศษไหม?"
+];
+let currentQuestion = 0;
+
+function nextQuestion() {
+  currentQuestion++;
+  if (currentQuestion < questions.length) {
+    document.getElementById("questionText").textContent = questions[currentQuestion];
+  } else {
+    // ✅ ซ่อนคำถาม
+    document.getElementById("questionBox").style.display = "none";
+
+    // ✅ แสดงปุ่มจดหมาย (หรือกระดาษได้ทันที)
+    document.querySelector(".letter-container").style.display = "block";
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  // ซ่อน letter ตอนเริ่ม
+  document.querySelector(".letter-container").style.display = "none";
+});
+
+
 // จัดการ "จดหมาย" และ popup กระดาษ
 const letterBtn = document.getElementById('letterBtn');
 const paperPopup = document.getElementById('paperPopup');
