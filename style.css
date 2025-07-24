@@ -239,13 +239,29 @@ body {
   cursor: pointer;
 }
 
-/* textbox */
-.textbox img {
-  width: 200px;
-  height: 200px;
-  object-fit: contain;
-  border-radius: 0;
-  box-shadow: none !important;
+.message-wrapper {
+  position: fixed;              /* อยู่กับหน้าจอตลอด */
+  bottom: 40px;                 /* ระยะห่างจากขอบล่าง ปรับได้ */
+  left: 50%;
+  transform: translateX(-50%); /* จัดกึ่งกลางแนวนอน */
+  width: auto;
+  height: auto;
+  z-index: 1000;
+}
+
+/* กล่องข้อความ */
+.msg-img {
+  width: 500px;                 /* ปรับความยาวได้ */
+  height: auto;
   display: block;
-  margin-top: 400px;
+}
+
+/* รูปคน วางซ้อนบนกล่อง */
+.person-img {
+  position: absolute;
+  bottom: 10px;                 /* อยู่ที่มุมล่างขวา */
+  right: 20px;
+  width: 120px;                 /* ปรับขนาดได้ */
+  height: auto;
+  z-index: 2;
 }
