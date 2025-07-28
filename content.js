@@ -155,6 +155,65 @@ closePaper.addEventListener('click', () => {
   letterBtn.src = 'image/letter_close.png';
   letterOpened = false;
 });
+//------------------------------------------------------------
+const msgWrapper = document.querySelector('.message-wrapper');
+const minImg = document.querySelector('.person-img');
+const questionBox = document.getElementById('questionBox');
+const minSpeech = document.getElementById("minSpeech");
+
+// เริ่มจากซ่อนไว้
+msgWrapper.style.display = 'none';
+questionBox.style.display = 'none';
+
+function typeText(text, element, callback) {
+  let i = 0;
+  element.textContent = "";
+  element.style.opacity = 1;
+
+  const typing = setInterval(() => {
+    element.textContent += text[i];
+    i++;
+    if (i === text.length) {
+      clearInterval(typing);
+      if (callback) {
+        setTimeout(() => {
+          element.style.opacity = 0;
+          callback();
+        }, 3000); // หลังพิมพ์เสร็จ รอ 3 วิ แล้วค่อยหาย
+      }
+    }
+  }, 100); // ความเร็วในการพิมพ์ (ms)
+}
+
+// หลังกด Ready
+startBtn.addEventListener("click", function () {
+  // ... introPopup ปิด + เพลงเล่น
+
+  // แสดง Min กลางจอ
+  minWrapper.style.display = 'block';
+
+  // เปลี่ยนท่าทาง
+  setTimeout(() => {
+    minImage.src = 'image/minbye.png';
+
+    // ผ่านไปอีกนิด ย้ายไปมุมล่างขวา + โชว์คำถาม
+    setTimeout(() => {
+      minWrapper.classList.remove('center');
+      minWrapper.classList.add('bottom-right');
+    
+    // เริ่มแสดงข้อความทีละตัว
+    typeText("สวัสดี", minSpeech, () => {
+      // หลังข้อความหาย ค่อยย้ายไปมุมล่างขวา + โชว์คำถาม
+      minWrapper.classList.remove('center');
+      minWrapper.classList.add('bottom-right');
+      questionBox.style.display = "block";
+    });
+
+    // แสดงกล่องคำถาม
+    document.getElementById("questionBox").style.display = "block";
+    }, 3000);
+  }, 1000);
+});
 
 
 // ฟังก์ชัน export หากต้องใช้จากนอก
