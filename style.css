@@ -308,3 +308,76 @@ body {
 #nextBtn:hover {
   background: #ff4757;
 }
+
+/* ------ */
+@media (max-width: 768px) {
+  .message-wrapper.bottom-right {
+    bottom: 60px;
+    right: 15px;
+  }
+
+  .person-img {
+    width: 140px;
+  }
+
+  .speech-bubble {
+    font-size: 16px;
+    bottom: 80px;
+    left: 0;
+    transform: none;
+  }
+
+  #questionBox {
+    padding: 20px 15px;
+    width: 95vw;
+  }
+
+  #questionBox p {
+    font-size: 16px;
+  }
+
+  #questionBox button {
+    font-size: 14px;
+    padding: 8px 16px;
+    margin: 5px 8px;
+  }
+
+  #nextBtn {
+    font-size: 16px;
+    padding: 8px 20px;
+  }
+
+  #nextBtnContainer {
+    right: 20px;
+    bottom: 15%;
+  }
+
+  #musicPopup {
+    width: 90vw;
+    padding: 12px;
+    height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .expandBtn {
+    bottom: 20px;
+    right: 20px;
+    font-size: 18px;
+    padding: 5px 12px;
+  }
+
+  .letter-container img {
+    width: 150px;
+  }
+
+  .paper-text p {
+    font-size: 16px;
+  }
+
+  .close-btn {
+    top: 20px;
+    right: 20px;
+  }
+}
