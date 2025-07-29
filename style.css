@@ -107,7 +107,7 @@ body {
 /* จดหมาย */
 .letter-container {
   position: fixed;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
@@ -128,12 +128,6 @@ body {
   transform: scale(1.1); /* ขยายเวลาวางเมาส์ */
 }
 
-.letter-container h1,
-.letter-container img {
-  margin: 10px 0;
-}
-
-
 .paper-popup {
   position: fixed;
   top: 50%;
@@ -143,7 +137,7 @@ body {
   z-index: 1500;
   transition: transform 0.5s ease, opacity 0.5s ease;
   pointer-events: none;
-  width: 90vw;
+  width: 100vw;
   max-width: 500px;
   height: auto;
   max-height: 90vh;
@@ -322,8 +316,8 @@ body {
 
   .speech-bubble {
     font-size: 16px;
-    bottom: 100px;
-    right: 450px;
+    bottom: 180px;
+    left: -225px;
     transform: none;
   }
 
@@ -348,17 +342,8 @@ body {
   }
 
   #nextBtnContainer {
-    right: 210px;
-    bottom: 17%;
-  }
-
-  #musicPopup {
-    width: 65vw;
-    padding: 12px;
-    height: auto;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
+    right: 150px;
+    bottom: 16%;
   }
 
   .expandBtn {
@@ -369,8 +354,7 @@ body {
   }
 
   .letter-container img {
-    width: 250px;
-    top: 45%;
+    width: 220px;
   }
 
   .paper-text p {
@@ -378,7 +362,7 @@ body {
   }
 
   .close-btn {
-    top: 20px;
-    right: 20px;
+    top: 40px;
+    right: 50px;
   }
 }
