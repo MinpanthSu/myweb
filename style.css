@@ -312,7 +312,7 @@ body {
 /* ------ */
 @media (max-width: 768px) {
   .message-wrapper.bottom-right {
-    bottom: 100px;
+    bottom: 120px;
     right: 15px;
   }
 
@@ -323,7 +323,7 @@ body {
   .speech-bubble {
     font-size: 16px;
     bottom: 100px;
-    right: 270px;
+    right: 350px;
     transform: none;
   }
 
@@ -348,8 +348,8 @@ body {
   }
 
   #nextBtnContainer {
-    right: 250px;
-    bottom: 20%;
+    right: 210px;
+    bottom: 17%;
   }
 
   #musicPopup {
