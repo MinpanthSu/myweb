@@ -323,7 +323,7 @@ body {
   .speech-bubble {
     font-size: 16px;
     bottom: 80px;
-    left: -40%;
+    left: 50px;
     transform: none;
   }
 
@@ -348,10 +348,10 @@ body {
   }
 
   #nextBtnContainer {
-    right: 20%;
+    right: 200px;
     bottom: 15%;
   }
-
+/* 
   #musicPopup {
     width: 90vw;
     padding: 12px;
@@ -359,7 +359,7 @@ body {
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
-  }
+  } */
 
   /* .expandBtn {
     bottom: 20px;
