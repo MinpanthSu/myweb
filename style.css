@@ -323,7 +323,7 @@ body {
   .speech-bubble {
     font-size: 16px;
     bottom: 100px;
-    right: 350px;
+    right: 450px;
     transform: none;
   }
 
@@ -369,7 +369,8 @@ body {
   }
 
   .letter-container img {
-    width: 150px;
+    width: 250px;
+    top: 45%;
   }
 
   .paper-text p {
