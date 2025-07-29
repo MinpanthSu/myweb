@@ -205,8 +205,8 @@ startBtn.addEventListener("click", function () {
 
 
 const dialogues = [
-  { text: "สวัสดี", image: "image/minsmile.png" },
-  { text: "เดี๋ยวจะมีเกมตอบคำถามให้เล่นนะ", image: "image/minsmile.png" }
+  { text: "สวัสดี", image: "image/minbye.png" },
+  { text: "เดี๋ยวจะมีเกมตอบคำถามให้เล่นนะ", image: "image/minget.png" }
 ];
 
 let dialogueIndex = 0;
