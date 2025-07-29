@@ -312,7 +312,7 @@ body {
 /* ------ */
 @media (max-width: 768px) {
   .message-wrapper.bottom-right {
-    bottom: 60px;
+    bottom: 200px;
     right: 15px;
   }
 
@@ -322,8 +322,8 @@ body {
 
   .speech-bubble {
     font-size: 16px;
-    bottom: 80px;
-    left: 50px;
+    bottom: 100px;
+    left: 250px;
     transform: none;
   }
 
@@ -348,25 +348,25 @@ body {
   }
 
   #nextBtnContainer {
-    right: 200px;
-    bottom: 15%;
+    right: 300px;
+    bottom: 20%;
   }
-/* 
+
   #musicPopup {
-    width: 90vw;
+    width: 65vw;
     padding: 12px;
     height: auto;
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
-  } */
+  }
 
-  /* .expandBtn {
+  .expandBtn {
     bottom: 20px;
     right: 20px;
     font-size: 18px;
     padding: 5px 12px;
-  } */
+  }
 
   .letter-container img {
     width: 150px;
