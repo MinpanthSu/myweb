@@ -323,7 +323,7 @@ body {
   .speech-bubble {
     font-size: 16px;
     bottom: 80px;
-    left: 0;
+    left: -40%;
     transform: none;
   }
 
@@ -348,7 +348,7 @@ body {
   }
 
   #nextBtnContainer {
-    right: 20px;
+    right: 20%;
     bottom: 15%;
   }
 
@@ -361,12 +361,12 @@ body {
     gap: 10px;
   }
 
-  .expandBtn {
+  /* .expandBtn {
     bottom: 20px;
     right: 20px;
     font-size: 18px;
     padding: 5px 12px;
-  }
+  } */
 
   .letter-container img {
     width: 150px;
