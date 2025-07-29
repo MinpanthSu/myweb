@@ -187,33 +187,148 @@ function typeText(text, element, callback) {
 
 // หลังกด Ready
 startBtn.addEventListener("click", function () {
-  // ... introPopup ปิด + เพลงเล่น
+  introPopup.style.display = "none";
+  popup.classList.remove('minimized');
+  expandBtn.style.display = "none";
+  loadSong(0);
+  playSong();
 
   // แสดง Min กลางจอ
   minWrapper.style.display = 'block';
 
-  // เปลี่ยนท่าทาง
   setTimeout(() => {
-    minImage.src = 'image/minbye.png';
-
-    // ผ่านไปอีกนิด ย้ายไปมุมล่างขวา + โชว์คำถาม
-    setTimeout(() => {
-      minWrapper.classList.remove('center');
-      minWrapper.classList.add('bottom-right');
-    
-    // เริ่มแสดงข้อความทีละตัว
-    typeText("สวัสดี", minSpeech, () => {
-      // หลังข้อความหาย ค่อยย้ายไปมุมล่างขวา + โชว์คำถาม
-      minWrapper.classList.remove('center');
-      minWrapper.classList.add('bottom-right');
-      questionBox.style.display = "block";
-    });
-
-    // แสดงกล่องคำถาม
-    document.getElementById("questionBox").style.display = "block";
-    }, 3000);
-  }, 1000);
+    minWrapper.classList.remove('center');
+    minWrapper.classList.add('bottom-right');
+    showDialogue(0); // 👈 เรียกตรงนี้เพื่อเริ่มลำดับ
+  }, 1200);
 });
+
+
+const dialogues = [
+  { text: "สวัสดี", image: "image/minsmile.png" },
+  { text: "เดี๋ยวจะมีเกมตอบคำถามให้เล่นนะ", image: "image/minsmile.png" }
+];
+
+let dialogueIndex = 0;
+
+// โชว์ข้อความพร้อมปุ่มถัดไป
+function showDialogue(index) {
+  if (index < dialogues.length) {
+    minImage.src = dialogues[index].image;
+    typeText(dialogues[index].text, minSpeech);
+    document.getElementById("nextBtnContainer").style.display = "block";
+  }
+}
+
+document.getElementById("nextBtn").addEventListener("click", () => {
+  dialogueIndex++;
+  if (dialogueIndex < dialogues.length) {
+    showDialogue(dialogueIndex);
+  } else {
+    // เริ่มคำถาม 1
+    document.getElementById("nextBtnContainer").style.display = "none";
+    showQuestion1();
+  }
+});
+
+// เริ่มคำถาม 1
+function showQuestion1() {
+  minImage.src = 'image/minkid.png';
+  questionBox.innerHTML = `
+    <p>คำถาม 1: วันหนึ่งคุณกำลังเดินกลับบ้าน เจอสัตว์สองตัวที่น่ารักกำลังจ้องหน้าคุณอยู่ คุณจะลูบสัตว์ตัวไหนก่อน?</p>
+    <button onclick="answerQ1('dog')">หมา</button>
+    <button onclick="answerQ1('cat')">แมว</button>
+  `;
+  questionBox.style.display = "block";
+}
+
+function answerQ1(choice) {
+  if (choice === 'dog') {
+    minImage.src = 'image/mindog.png';
+    minSpeech.textContent = "บ็อกๆ ลูบหัวเค้าหน่อยย ><";
+  } else {
+    minImage.src = 'image/minmeow.png';
+    minSpeech.textContent = "เหมี๊ยววว ลูบหัวเค้าหน่อยย ><";
+  }
+  setTimeout(() => showQuestion2(choice), 800); // รอแป๊บแล้วไปต่อ
+}
+
+function showQuestion2(prevChoice) {
+  questionBox.innerHTML = `
+    <p>คำถาม 2: หลังจากกนั้นคุณก็กลับมาถึงห้อง และพบว่าวันนี้เป็นวันพิเศษของคุณ ทายสิว่าวันนี้วันอะไร?</p>
+    <button onclick="answerQ2('birthday')">วันเกิด</button>
+    <button id="wrongBtn" onclick="answerQ2('wrong')">ไม่รู้</button>
+    <br><br>
+    <button onclick="goBackToQ1()">ย้อนกลับ</button>
+  `;
+}
+
+function goBackToQ1() {
+  // ล้างคำพูดและเปลี่ยนเป็นภาพเริ่มต้น
+  minSpeech.textContent = "ฮั่นแน่ อยากให้เป็นสัตว์อีกตัวล่ะสิ้~";
+
+  // แสดงคำถาม 1 ใหม่
+  minImage.src = 'image/minlaugh.png';
+  questionBox.innerHTML = `
+    <p>คำถาม 1: วันหนึ่งคุณกำลังเดินกลับบ้าน เจอสัตว์สองตัวที่น่ารักกำลังจ้องหน้าคุณอยู่ คุณจะลูบสัตว์ตัวไหนก่อน?</p>
+    <button onclick="answerQ1('dog')">หมา</button>
+    <button onclick="answerQ1('cat')">แมว</button>
+  `;
+  questionBox.style.display = "block";
+}
+
+
+function answerQ2(choice) {
+  if (choice === 'birthday') {
+    minImage.src = 'image/mindaisyflower.png';
+    minSpeech.innerHTML = "เก่งมากค้าบบี๋ เอาดอกไม้ไปก่อนน้าา <br>และเค้ามีอะไรอยากให้ดูด้วยย";
+    setTimeout(showQuestion3, 800);
+  } else {
+    minImage.src = 'image/minngon.png';
+    minSpeech.textContent = "คิดดีๆสิ เอาใหม่น้าาา";
+
+    // ปิดปุ่ม "ไม่รู้"
+    const wrongBtn = document.getElementById("wrongBtn");
+    wrongBtn.disabled = true;
+    wrongBtn.style.background = "#ccc";
+    wrongBtn.style.cursor = "not-allowed";
+
+    // เปลี่ยนคำตอบเหลือแค่ "วันเกิด"
+    questionBox.innerHTML = `
+      <p>คำถาม 2: ทายสิว่าวันนี้วันอะไร?</p>
+      <button onclick="answerQ2('birthday')">วันเกิด</button>
+      <button style="background:#ccc; cursor:not-allowed;" disabled>ไม่รู้</button>
+    `;
+  }
+}
+
+function showQuestion3() {
+  questionBox.innerHTML = `
+    <p>คำถาม 3: พร้อมมั้ยยย?</p>
+    <button onclick="answerQ3()">พร้อมม</button>
+    <button onclick="answerQ3()">พร้อมมากกกก</button>
+  `;
+}
+
+function answerQ3() {
+  questionBox.style.display = "none";
+  minSpeech.textContent = "งั้นมาลองเปิดซองดูกันมั้ยย";
+  document.querySelector(".letter-container").style.display = "block";
+}
+
+// gen text
+function typeText(text, element) {
+  let i = 0;
+  element.textContent = "";
+  element.style.opacity = 1;
+  const typing = setInterval(() => {
+    element.textContent += text[i];
+    i++;
+    if (i === text.length) {
+      clearInterval(typing);
+    }
+  }, 70);
+}
 
 
 // ฟังก์ชัน export หากต้องใช้จากนอก

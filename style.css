@@ -268,11 +268,11 @@ body {
 
 .speech-bubble {
   position: absolute;
-  bottom: 120px;
-  left: 50%;
+  bottom: 100px;
+  left: -100%;
   transform: translateX(-50%);
-  background: #fff;
-  border: 2px solid #333;
+  /* background: #fff; */
+  /* border: 2px solid #333; */
   border-radius: 10px;
   padding: 12px 16px;
   font-size: 20px;
@@ -282,4 +282,29 @@ body {
   opacity: 0;
   transition: opacity 0.5s ease;
   pointer-events: none;
+}
+
+/* next dialouge */
+#nextBtnContainer {
+  position: absolute;
+  bottom: 13%;
+  right: 220px;
+  display: none; /* เริ่มต้นยังไม่โชว์ */
+  z-index: 1201;
+}
+
+#nextBtn {
+  padding: 10px 25px;
+  font-size: 18px;
+  border: none;
+  /* background: #ff6b81; */
+  color: rgb(0, 0, 0);
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+  transition: background 0.3s ease;
+}
+
+#nextBtn:hover {
+  background: #ff4757;
 }
