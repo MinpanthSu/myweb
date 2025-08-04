@@ -217,7 +217,7 @@ function goBackToQ1() {
 function answerQ2(choice) {
   if (choice === 'birthday') {
     minImage.src = 'image/mindaisyflower.png';
-    typeText("เก่งมากค้าบบี๋ เค้ามีอะไรอยากให้ดูด้วยย", minSpeech);
+    typeText("เก่งมากค้าบเบ้บ เค้ามีอะไรอยากให้ดูด้วยย", minSpeech);
     setTimeout(showQuestion3, 100);
   } else {
     minImage.src = 'image/minngon.png';
@@ -254,7 +254,7 @@ function answerQ3() {
 
 // ===== บทสุดท้าย =====
 const finalDialogues = [
-  { text: "สุดท้ายแล้วนะ เค้าอยากบอกว่าชอบเบบี๋นะคั้บบ ><", image: "image/minsmile.png" },
+  { text: "สุดท้ายแล้วนะ เค้าอยากบอกว่า รักเบ้บนะคั้บบ ><", image: "image/minsmile.png" },
   { text: "ขอบคุณที่อยู่ดูถึงตอนนี้นะงับ", image: "image/minlaugh.png" },
   { text: "ไว้เค้าไปหาบ่อยๆนะ บ๊ะบายน้าาาา", image: "image/minbye.png" }
 ];
