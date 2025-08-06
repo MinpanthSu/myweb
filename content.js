@@ -254,9 +254,10 @@ function answerQ3() {
 
 // ===== บทสุดท้าย =====
 const finalDialogues = [
-  { text: "สุดท้ายแล้วนะ เค้าอยากบอกว่า รักเบ้บนะคั้บบ ><", image: "image/minsmile.png" },
+  { text: "สุดท้ายแล้วนะ เค้าอยากบอกว่า รักเบ้บนะคั้บบ <3", image: "image/minsmile.png" },
   { text: "ขอบคุณที่อยู่ดูถึงตอนนี้นะงับ", image: "image/minlaugh.png" },
-  { text: "ไว้เค้าไปหาบ่อยๆนะ รักนะคนเก่งของเค้า บ๊ะบายน้าาาา", image: "image/minbye.png" }
+  { text: "ไว้เค้าไปหาบ่อยๆนะ", image: "image/minkid.png" },
+  { text: "รักนะคนเก่งของเค้า <3 บ๊ะบายน้าาาา", image: "image/minbye.png" }
 ];
 
 let finalDialogueIndex = 0;
